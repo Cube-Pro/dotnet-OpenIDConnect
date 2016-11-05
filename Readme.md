@@ -1,0 +1,1 @@
+Demo for using OpenID Connect to retrive information for site registration.

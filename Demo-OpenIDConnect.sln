@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B8C33371-A4FD-4D16-9E99-2489BAA7A23C}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		Readme.md = Readme.md
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Demo-OpenIDConnect", "src\Demo-OpenIDConnect\Demo-OpenIDConnect.xproj", "{C513846C-B769-4ADF-B31B-BEA2B0A3929A}"
