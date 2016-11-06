@@ -13,6 +13,15 @@ using Demo_OpenIDConnect.Data;
 using Demo_OpenIDConnect.Models;
 using Demo_OpenIDConnect.Services;
 
+
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Authentication;
+
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+
 namespace Demo_OpenIDConnect
 {
     public class Startup
@@ -47,6 +56,9 @@ namespace Demo_OpenIDConnect
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddAuthentication(sharedOptions =>
+                sharedOptions.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme);
+
             services.AddMvc();
 
             // Add application services.
@@ -76,6 +88,18 @@ namespace Demo_OpenIDConnect
             app.UseIdentity();
 
             // Add external authentication middleware below. To configure them please see http://go.microsoft.com/fwlink/?LinkID=532715
+
+            app.UseCookieAuthentication(new CookieAuthenticationOptions());
+
+            app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
+            {
+                ClientId = Configuration["oidc:clientid"],
+                ClientSecret = Configuration["oidc:clientsecret"], // for code flow
+                Authority = Configuration["oidc:authority"],
+                ResponseType = OpenIdConnectResponseType.Code,
+                GetClaimsFromUserInfoEndpoint = true
+            });
+
 
             app.UseMvc(routes =>
             {

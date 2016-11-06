@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-Demo_OpenIDConnect-b9756ac5-cb0c-404a-a40e-9b0b399c1682",
 
   "dependencies": {
@@ -43,7 +43,9 @@
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "Microsoft.IdentityModel.Protocols.OpenIdConnect": "2.0.1-pre-310121323",
+    "Microsoft.AspNetCore.Authentication.OpenIdConnect": "1.1.0-preview1-final"
   },
 
   "tools": {
